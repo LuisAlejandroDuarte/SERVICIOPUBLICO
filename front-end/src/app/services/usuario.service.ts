@@ -71,11 +71,12 @@ export class UsuarioService {
 
   actualizarPerfil(formData:Usuario) {
     formData.empresaId=environment.EmpresaId;
-    return this.http.put(`${base_url}/ActualizarUsuario`,formData);
+    return this.http.put(`${base_url}/EditUsuario`,formData);
     
   }
 
   crearUsuario(formData:Usuario) {
+    console.log("User",formData);
     return this.http.post(`${base_url}/CrearUsuario`,formData);
   }
 

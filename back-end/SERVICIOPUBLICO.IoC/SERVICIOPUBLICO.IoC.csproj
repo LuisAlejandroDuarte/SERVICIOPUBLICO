@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SERVICIOPUBLICO.Controllers\SERVICIOPUBLICO.Controllers.csproj" />
+    <ProjectReference Include="..\SERVICIOPUBLICO.Presenter\SERVICIOPUBLICO.Presenter.csproj" />
+    <ProjectReference Include="..\SERVICIOPUBLICO.RepositoryEF\SERVICIOPUBLICO.RepositoryEF.csproj" />
+    <ProjectReference Include="..\SERVICIOPUBLICO.UseCases\SERVICIOPUBLICO.UseCases.csproj" />
+  </ItemGroup>
+
+</Project>

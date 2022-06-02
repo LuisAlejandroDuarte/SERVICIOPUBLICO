@@ -31,7 +31,7 @@ export class FormUsuariosComponent implements OnInit,OnChanges {
 
   ngOnInit(): void {
     this.formUsuario = this.fb.group({
-      id:[''],
+      id:[0],
       user:['', Validators.required],    
       nombre:['', Validators.required],
       apellido:['', Validators.required],

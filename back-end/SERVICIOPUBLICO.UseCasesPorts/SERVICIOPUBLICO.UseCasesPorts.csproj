@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SERVICIOPUBLICO.DTOs\SERVICIOPUBLICO.DTOs.csproj" />
+    <ProjectReference Include="..\SERVICIOPUBLICO.Entities\SERVICIOPUBLICO.Entities.csproj" />
   </ItemGroup>
 
 </Project>
