@@ -20,7 +20,9 @@ namespace SERVICIOPUBLICO.RepositoryEF
             services.AddDbContext<ServicioPublicoContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("ConectionString")));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddScoped<IUsuarioRepository, UsuarioRepository>();         
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IUsoRepository, UsoRepository>();
+            services.AddScoped<ITarifaRepository, TarifaRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

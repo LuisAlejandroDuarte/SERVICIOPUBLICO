@@ -12,6 +12,9 @@ namespace SERVICIOPUBLICO.Entities.POCOs
 
         public Uso? Uso { get; set; }
 
+        public int RangoUNO { get; set; }
+        public int RangoDOS { get; set; }
+        public int RangoTRES { get; set; }
 
         #region Acueducto
         [Column(TypeName = "decimal(10,3)")]

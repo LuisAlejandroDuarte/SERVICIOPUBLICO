@@ -139,6 +139,6 @@ export interface typeColumns {
   data:string,
   visible?:boolean,
   orderable?:boolean,
-  width?:number,
+  width?:string,
   render?:Function  
 }

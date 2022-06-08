@@ -44,5 +44,6 @@ namespace SERVICIOPUBLICO.DTOs
     {
         public string? Bloqueado { get; set; } = string.Empty;
         public string? Edit { get; set; } = string.Empty;
+        public string? Eliminar { get; set; } = string.Empty;
     }
 }

@@ -34,6 +34,14 @@ import { FormRutaComponent } from './rutas/form-ruta/form-ruta.component';
 import { CrearRutaComponent } from './rutas/crear-ruta/crear-ruta.component';
 import { EditarRutaComponent } from './rutas/editar-ruta/editar-ruta.component';
 import { FormatNumberDirective } from '../directive/format-number.directive';
+import { ListUsosComponent } from './usos/list-usos/list-usos.component';
+import { FormUsoComponent } from './usos/form-uso/form-uso.component';
+import { CrearUsoComponent } from './usos/crear-uso/crear-uso.component';
+import { EditarUsoComponent } from './usos/editar-uso/editar-uso.component';
+import { ListTarifasComponent } from './tarifas/list-tarifas/list-tarifas.component';
+import { CrearTarifaComponent } from './tarifas/crear-tarifa/crear-tarifa.component';
+import { EditarTarifaComponent } from './tarifas/editar-tarifa/editar-tarifa.component';
+import { FormTarifaComponent } from './tarifas/form-tarifa/form-tarifa.component';
 
 
 @NgModule({
@@ -73,7 +81,15 @@ import { FormatNumberDirective } from '../directive/format-number.directive';
       FormRutaComponent,
       CrearRutaComponent,
       EditarRutaComponent,
-      FormatNumberDirective
+      FormatNumberDirective,
+      ListUsosComponent,
+      FormUsoComponent,
+      CrearUsoComponent,
+      EditarUsoComponent,
+      ListTarifasComponent,
+      CrearTarifaComponent,
+      EditarTarifaComponent,
+      FormTarifaComponent
   ]  
 })
 

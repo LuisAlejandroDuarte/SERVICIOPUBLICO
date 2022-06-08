@@ -25,4 +25,14 @@ export class FormatNumberDirective {
     }
   }
 
+  @HostListener("focus")
+  onFocus() {
+    console.log("Focus",this.el.nativeElement.value);
+  }
+
+  @HostListener("blur")
+  onBlur() {
+    console.log("Blur",this.el.nativeElement.value);
+  }
+
 }

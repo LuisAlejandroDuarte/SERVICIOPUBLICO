@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -16,7 +16,7 @@ import { Encriptacion } from 'src/app/help/cripto';
 })
 
 
-export class FormUsuariosComponent implements OnInit,OnChanges {
+export class FormUsuariosComponent implements OnInit,OnChanges,AfterViewInit {
 
   @Input() titulo:string;
   @Input() modelo:Usuario;
@@ -65,6 +65,25 @@ export class FormUsuariosComponent implements OnInit,OnChanges {
       
    
   }
+
+  ngAfterViewInit():void {
+    setTimeout(()=>{
+      if (this.modelo) {
+        console.log("Modelo usuario2",this.modelo);
+        this.formUsuario.get('id').setValue(this.modelo.id);
+        this.formUsuario.get('user').setValue(this.modelo.user);          
+        this.formUsuario.get('nombre').setValue(this.modelo.nombre);
+        this.formUsuario.get('apellido').setValue(this.modelo.apellido);
+        this.formUsuario.get('direccion').setValue(this.modelo.direccion);
+        this.formUsuario.get('telefono').setValue(this.modelo.telefono);
+        this.formUsuario.get('estado').setValue(this.modelo.estado);
+        this.formUsuario.get('rol').setValue(this.modelo.rol);
+                  //this.formUsuario.patchValue(this.modelo);
+      }            
+    
+    },1000)
+      
+  };
 
   onSubmit() {    
     this.formSend=true;    

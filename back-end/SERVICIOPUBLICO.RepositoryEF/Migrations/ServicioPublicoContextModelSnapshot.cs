@@ -72,12 +72,6 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.Property<string>("Direccion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("EmpresaId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("IdEmprsa")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("ManzanaDane")
                         .HasColumnType("nvarchar(max)");
 
@@ -103,8 +97,6 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EmpresaId");
 
                     b.HasIndex("UsoId");
 
@@ -172,6 +164,15 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
 
                     b.Property<decimal>("PorcentajeFinanaciacion")
                         .HasColumnType("decimal(10,3)");
+
+                    b.Property<int>("RangoDOS")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RangoTRES")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RangoUNO")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("SubsidioAseo")
                         .HasColumnType("decimal(10,3)");
@@ -248,10 +249,15 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long?>("EmpresaId")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("Estrato")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
 
                     b.ToTable("Usos");
                 });
@@ -307,17 +313,11 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Suscriptor", b =>
                 {
-                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Empresa", "Empresa")
-                        .WithMany()
-                        .HasForeignKey("EmpresaId");
-
                     b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Uso", "Uso")
                         .WithMany("Suscriptores")
                         .HasForeignKey("UsoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Empresa");
 
                     b.Navigation("Uso");
                 });
@@ -331,6 +331,15 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .IsRequired();
 
                     b.Navigation("Uso");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Uso", b =>
+                {
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId");
+
+                    b.Navigation("Empresa");
                 });
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Usuario", b =>

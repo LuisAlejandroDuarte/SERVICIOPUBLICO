@@ -1,0 +1,53 @@
+
+
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">supervised_user_circle</i>
+              </div>
+              <h4 class="card-title">{{title}}</h4>
+              <form (ngSubmit)="onSubmit()" [formGroup]="formUso">
+                <div class="container-fluid">
+                    <div class="row">                
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Código</label>
+                                <input type="text" class="form-control"
+                                  formControlName="codigo">
+                                  <p class="col text-danger" *ngIf="validarCampo('codigo')">Código es requerido</p>
+                              </div>
+                        </div>  
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Estrato</label>
+                                <input type="text" class="form-control"
+                                  formControlName="estrato">
+                                  <p class="col text-danger" *ngIf="validarCampo('estrato')">Estrato es requerido</p>
+                              </div>                                                           
+                            
+                        </div>  
+                      
+                    </div>
+                    <div class="row">                
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Descripción</label>
+                                <input type="text" class="form-control"
+                                  formControlName="descripcion">                                  
+                              </div>
+                        </div>  
+                    </div>
+                    <button mat-raised-button (click)="salir()" class="btn btn-danger pull-right">Cancelar</button>
+                    <button mat-raised-button type="submit" [disabled]="!formUso.valid" class="btn btn-primary pull-right"> {{modelo==undefined? 'Guardar':'Actualizar'}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -93,9 +93,11 @@ export class TableSimpleComponent implements OnInit,AfterViewInit,OnChanges {
   ngOnChanges(changes: SimpleChanges): void {    
 
     setTimeout(()=>{
+      console.log("Changes",changes);
         for (let propName in changes) {
           if (propName=="data" && this.tabla)
           {        
+
             const datos =changes[propName].currentValue;
             $('#datatables').DataTable().clear(); 
             $('#datatables').DataTable().rows.add(datos);

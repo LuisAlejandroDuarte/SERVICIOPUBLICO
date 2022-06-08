@@ -72,7 +72,7 @@ namespace SERVICIOPUBLICO.RepositoryEF.Repositories
 
 
 
-        public IEnumerable<Usuario>? GetAll()
+        public IEnumerable<Usuario> GetAll()
         {
             return Context.Usuarios;
         }

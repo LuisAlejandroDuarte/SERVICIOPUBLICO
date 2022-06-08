@@ -21,9 +21,7 @@ namespace SERVICIOPUBLICO.Entities.POCOs
         public string? ManzanaIgac { get; set; }
         public string? ManzanaEstratifica { get; set; }
         public bool? Bloqueo { get; set; }
-        public long? IdEmprsa { get; set; }
-
-        public virtual Empresa? Empresa { get; set; }
+        
 
     }
 }

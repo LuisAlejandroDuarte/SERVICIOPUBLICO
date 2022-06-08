@@ -21,6 +21,12 @@ import { CrearTurnoComponent } from './turnos/crear-turno/crear-turno.component'
 import { ListRutasComponent } from './rutas/list-rutas/list-rutas.component';
 import { CrearRutaComponent } from './rutas/crear-ruta/crear-ruta.component';
 import { EditarRutaComponent } from './rutas/editar-ruta/editar-ruta.component';
+import { ListUsosComponent } from './usos/list-usos/list-usos.component';
+import { EditarUsoComponent } from './usos/editar-uso/editar-uso.component';
+import { CrearUsoComponent } from './usos/crear-uso/crear-uso.component';
+import { ListTarifasComponent } from './tarifas/list-tarifas/list-tarifas.component';
+import { CrearTarifaComponent } from './tarifas/crear-tarifa/crear-tarifa.component';
+import { EditarTarifaComponent } from './tarifas/editar-tarifa/editar-tarifa.component';
 
 
 
@@ -49,8 +55,53 @@ export const ComponentsRoutes: Routes = [
         children:
         [
             {
-              path: 'propietario',
-              component: ListPropietariosComponent          
+              path: 'usos',
+              component: ListUsosComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'editar-uso/:id',
+              component: EditarUsoComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'crear-uso',
+              component: CrearUsoComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'tarifas',
+              component: ListTarifasComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'crear-tarifa',
+              component: CrearTarifaComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'editar-tarifa/:id',
+              component: EditarTarifaComponent          
             }
         ]
     },{

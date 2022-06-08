@@ -1,5 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SERVICIOPUBLICO.Presenter.Tarifa;
+using SERVICIOPUBLICO.Presenter.Uso;
 using SERVICIOPUBLICO.Presenter.Usuarios;
+using SERVICIOPUBLICO.UseCasesPorts.Tarifa;
+using SERVICIOPUBLICO.UseCasesPorts.Uso;
 using SERVICIOPUBLICO.UseCasesPorts.Usuarios;
 
 namespace SERVICIOPUBLICO.Presenter
@@ -17,6 +21,21 @@ namespace SERVICIOPUBLICO.Presenter
             services.AddScoped<IEditUsuarioOutPutPort, EditUsuarioPresenter>();
             services.AddScoped<IGetUsuarioOutPutPort, GetUsuarioPresenter>();
             services.AddScoped<IChangePasswordOutPutPort, ChangePasswordPresenter>();
+
+
+            //Usos
+            services.AddScoped<IGetUsoOutPutPort, GetUsoPresenter>();
+            services.AddScoped<IEditarUsoOutPutPort, EditarUsoPresenter>();
+            services.AddScoped<ICrearUsoOutPutPort, CrearUsoPresenter>();
+            services.AddScoped<IEliminarUsoOutPutPort, EliminarUsoPresenter>();
+            services.AddScoped<IGetAllUsosOutPutPort, GetAllUsosPresenter>();
+
+            //Tarifas
+            services.AddScoped<ICrearTarifaOutPutPort, CrearTarifaPresenter>();
+            services.AddScoped<IEditarTarifaOutPutPort, EditarTarifaPresenter>();
+            services.AddScoped<IEliminarTarifaOutPutPort, EliminarTarifaPresenter>();
+            services.AddScoped<IGetTarifaOutPutPort, GetTarifaPresenter>();
+            services.AddScoped<IGetAllTarifasOutPutPort, GetAllTarifasPresenter>();
 
             return services;
         }

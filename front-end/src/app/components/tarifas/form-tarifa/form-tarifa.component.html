@@ -1,0 +1,425 @@
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">supervised_user_circle</i>
+              </div>
+              <h4 class="card-title">{{title}}</h4>
+              <form (ngSubmit)="onSubmit()" [formGroup]="formTarifa">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-3">                      
+                          <mat-form-field appearance="fill">
+                          <mat-label>Seleccione uso</mat-label>
+                          <mat-select formControlName="usoId">
+                              <mat-option *ngFor="let item of usos" [value]="item.id">
+                              {{item.codigo}}
+                              </mat-option>
+                          </mat-select>
+                          </mat-form-field>
+                  </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Rango uno</label>
+                        <input type="text" class="form-control height" appFormatNumber
+                          formControlName="rangoUNO">
+                          <p class="col text-danger" *ngIf="validarCampo('rangoUNO')">Valor requeridas</p>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Rango dos</label>
+                        <input type="text" class="form-control height" appFormatNumber
+                          formControlName="rangoDOS">
+                          <p class="col text-danger" *ngIf="validarCampo('rangoDOS')">Valor requeridas</p>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Rango tres</label>
+                        <input type="text" class="form-control height" appFormatNumber
+                          formControlName="rangoTRES">
+                          <p class="col text-danger" *ngIf="validarCampo('rangoTRES')">Valor requeridas</p>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+                       
+                    </div>
+                    <div class="row">         
+                        <div class="col-12">
+                            <mat-accordion class="example-headers-align">
+                                <mat-expansion-panel [expanded]="false" (opened)="setStep(0)" hideToggle>
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      ACUEDUCTO
+                                    </mat-panel-title>                                   
+                                  </mat-expansion-panel-header>
+                                  <div class="row">
+                                      <div class="col-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Cargo fijo</label>
+                                            <input type="text" class="form-control" appFormatNumber
+                                              formControlName="valorCargoFijoAcueducto">
+                                              <p class="col text-danger" *ngIf="validarCampo('valorCargoFijoAcueducto')">Valor requeridas</p>
+                                          </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Básico</label>
+                                            <input type="text" class="form-control" appFormatNumber
+                                              formControlName="valorBasicoAcueducto">
+                                              <p class="col text-danger" *ngIf="validarCampo('valorBasicoAcueducto')">Valor requeridas</p>
+                                          </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Complementario</label>
+                                            <input type="text" class="form-control" appFormatNumber
+                                              formControlName="valorComplementarioAcueducto">
+                                              <p class="col text-danger" *ngIf="validarCampo('valorComplementarioAcueducto')">Valor requeridas</p>
+                                          </div>
+                                      </div>
+                                      <div class="col-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Suntuario</label>
+                                            <input type="text" class="form-control" appFormatNumber
+                                              formControlName="valorSuntuarioAcueducto">
+                                              <p class="col text-danger" *ngIf="validarCampo('valorSuntuarioAcueducto')">Valor requeridas</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Referencia CargoFijo</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="costoReferenciaCargoFijoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('costoReferenciaCargoFijoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Referencia Consumo</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="costoReferenciaConsumoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('costoReferenciaConsumoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Subsidio CargoFijo</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="subsidioCargoFijoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('subsidioCargoFijoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Subsidio Básico</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="subsidioBasicoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('subsidioBasicoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>                                                                        
+                                    
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Contribución Cargofijo(%)</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="porcentajeContribucionCargofijoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('porcentajeContribucionCargofijoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Contribucion Consumo(%)</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="porcentajeContribucionConsumoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('porcentajeContribucionConsumoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Incremento CargoFijo</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="incrementoCargoFijoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('incrementoCargoFijoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating">Incremento Consumo</label>
+                                          <input type="text" class="form-control" appFormatNumber
+                                            formControlName="incrementoConsumoAcueducto">
+                                            <p class="col text-danger" *ngIf="validarCampo('incrementoConsumoAcueducto')">Valor requeridas</p>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                  </div>
+
+                                </mat-expansion-panel>
+                              
+                                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                      ALCANTARILLADO
+                                    </mat-panel-title>                                    
+                                  </mat-expansion-panel-header>
+                              
+                                  <div class="row">
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Cargo fijo</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="valorCargoFijoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('valorCargoFijoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Básico</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="valorBasicoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('valorBasicoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Complementario</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="valorComplementarioAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('valorComplementarioAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Suntuario</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="valorSuntuarioAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('valorSuntuarioAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>                                    
+                                  </div>         
+                                  <div class="row">
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Referencia CargoFijo</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="costoReferenciaCargoFijoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('costoReferenciaCargoFijoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Referencia Consumo</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="costoReferenciaConsumoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('costoReferenciaConsumoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>   
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Subsidio CargoFijo</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="subsidioCargoFijoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('subsidioCargoFijoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Subsidio Básico</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="subsidioBasicoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('subsidioBasicoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Contribución Cargofijo (%)</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="porcentajeContribucionCargofijoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('porcentajeContribucionCargofijoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Contribución Consumo(%)</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="porcentajeContribucionConsumoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('porcentajeContribucionConsumoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Incremento CargoFijo</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="incrementoCargoFijoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('incrementoCargoFijoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Incremento Consumo</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="incrementoConsumoAlcantarillado">
+                                          <p class="col text-danger" *ngIf="validarCampo('incrementoConsumoAlcantarillado')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    
+                                  </div>                   
+                                </mat-expansion-panel>
+                              
+                                <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                     ASEO
+                                    </mat-panel-title>
+                                 
+                                  </mat-expansion-panel-header>
+                                 <div class="row">
+                                  <div class="col-3">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Barrido</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="valorBarridoAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('valorBarridoAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div>  
+                                  <div class="col-3">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Recolección</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="valorRecoleccionAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('valorRecoleccionAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div> 
+                                  <div class="col-3">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Disposición</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="valorDisposicionAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('valorDisposicionAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div>  
+                                  <div class="col-3">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Recaudo</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="valorRecaudoAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('valorRecaudoAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div>  
+                                 </div>
+                                 <div class="row">
+                                  <div class="col-4">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Subsidio</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="subsidioAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('subsidioAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div> 
+                                  <div class="col-4">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Incremento</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="incrementoAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('incrementoAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div> 
+                                  <div class="col-4">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Contribución(%)</label>
+                                      <input type="text" class="form-control" appFormatNumber
+                                        formControlName="porcentajeContribucionAseo">
+                                        <p class="col text-danger" *ngIf="validarCampo('porcentajeContribucionAseo')">Valor requeridas</p>
+                                    </div>
+                                  </div> 
+                                  
+                                 </div>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                                  <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                     OTROS
+                                    </mat-panel-title>
+                                 
+                                  </mat-expansion-panel-header>
+                              
+                                  <div class="row">
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Interés mora</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="interesMora">
+                                          <p class="col text-danger" *ngIf="validarCampo('interesMora')">Valor requeridas</p>
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Finanaciación (%)</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="porcentajeFinanaciacion">
+                                          <p class="col text-danger" *ngIf="validarCampo('porcentajeFinanaciacion')">Valor requeridas</p>
+                                      </div>
+                                    </div> 
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Otro valor</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="otroValor">                                          
+                                      </div>
+                                    </div>  
+                                    <div class="col-3">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Otro subsidio</label>
+                                        <input type="text" class="form-control" appFormatNumber
+                                          formControlName="otroSubsidio">                                          
+                                      </div>
+                                    </div>  
+                                    
+                                  </div>
+                                </mat-expansion-panel>
+                              
+                              </mat-accordion>
+                        </div>       
+                        <!-- <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Código</label>
+                                <input type="text" class="form-control"
+                                  formControlName="codigo">
+                                  <p class="col text-danger" *ngIf="validarCampo('codigo')">Código es requerido</p>
+                              </div>
+                        </div>  
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Estrato</label>
+                                <input type="text" class="form-control"
+                                  formControlName="estrato">
+                                  <p class="col text-danger" *ngIf="validarCampo('estrato')">Estrato es requerido</p>
+                              </div>                                                           
+                            
+                        </div>  
+                       -->
+                    </div>
+                  
+                    <button mat-raised-button (click)="salir()" class="btn btn-danger pull-right">Cancelar</button>
+                    <button mat-raised-button type="submit" [disabled]="!formTarifa.valid" class="btn btn-primary pull-right"> {{modelo==undefined? 'Guardar':'Actualizar'}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

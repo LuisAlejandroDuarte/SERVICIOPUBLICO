@@ -29,6 +29,6 @@ export class MotoService {
 
     crearMoto(moto:Moto)
     {      
-      return this.http.post(`${base_url}/CrearMoto`,moto);
+      return this.http.post(`${base_url}/CrearMoto`,moto);      
     }
 }

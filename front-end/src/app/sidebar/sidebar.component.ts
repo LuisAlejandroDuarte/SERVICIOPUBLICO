@@ -50,10 +50,9 @@ export const ROUTES: RouteInfo[] = [{
         collapse: 'components',
         children: [
             {path: 'usuarios', title: 'Usuarios', ab:'UR'} ,       
-            {path: 'propietario', title: 'Propietarios', ab:'PR'},
-            {path: 'motos', title: 'Motos', ab:'MT'},
-            {path: 'turnos', title: 'Turnos', ab:'TU'},
-            {path: 'rutas', title: 'Rutas', ab:'RT'},
+            {path: 'usos', title: 'Usos', ab:'US'},
+            {path: 'tarifas', title: 'Tarifas', ab:'TR'},
+            {path: 'suscriptores', title: 'Suscriptores', ab:'SU'}            
         ]
     
     },{
