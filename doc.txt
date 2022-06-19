@@ -1,3 +1,38 @@
 add-migration Iniciar -p ServicioPublico.RepositoryEF -c ServicioPublicoContext -o Migrations -s  ServicioPublico.RepositoryEF
 
 update-database -p ServicioPublico.RepositoryEF -s ServicioPublico.RepositoryEF
+
+INSERT INTO [dbo].[Activos]([CodigoEmpresa],[Cedula],[NumeroContraro],[Nombre],
+[Codcdc], Centro de costos
+[Descdc],
+[Periodicidad] ,
+[Ih],
+[Cargo],
+[Descarg],
+[Fechaingreso],
+[Estado],
+[Tiponom],
+[Destipon],
+[CMIL_Empleos])
+     VALUES ()
+
+
+spgetandinsertreportccms
+
+spgetandinsertreportccmsnominafija
+
+si diferencia lectura>130 alta 
+
+considerar ingreso de lacturas menores a las anteriores por medidores 5 digitos
+
+fechalectura y lector
+
+si diferencia lectura<70 bajita
+
+
+2 primeros zona
+2 sig para ruta
+4 sig #conexion
+2 sig piso
+2 sig Apto
+

@@ -12,6 +12,7 @@ namespace SERVICIOPUBLICO.Entities.POCOs
         public long Sistema { get; set; }
         public string? Nombre { get; set; }
         public string? Direccion { get; set; }
+        public string? Telefono { get; set; }
         public bool Alcantarillado { get; set; }
         public bool Aseo { get; set; }
         public int Atraso { get; set; }        

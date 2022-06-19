@@ -42,6 +42,10 @@ import { ListTarifasComponent } from './tarifas/list-tarifas/list-tarifas.compon
 import { CrearTarifaComponent } from './tarifas/crear-tarifa/crear-tarifa.component';
 import { EditarTarifaComponent } from './tarifas/editar-tarifa/editar-tarifa.component';
 import { FormTarifaComponent } from './tarifas/form-tarifa/form-tarifa.component';
+import { ListSuscriptoresComponent } from './suscriptores/list-suscriptores/list-suscriptores.component';
+import { CrearSuscriptorComponent } from './suscriptores/crear-suscriptor/crear-suscriptor.component';
+import { EditarSuscriptorComponent } from './suscriptores/editar-suscriptor/editar-suscriptor.component';
+import { FormSuscriptorComponent } from './suscriptores/form-suscriptor/form-suscriptor.component';
 
 
 @NgModule({
@@ -89,7 +93,11 @@ import { FormTarifaComponent } from './tarifas/form-tarifa/form-tarifa.component
       ListTarifasComponent,
       CrearTarifaComponent,
       EditarTarifaComponent,
-      FormTarifaComponent
+      FormTarifaComponent,
+      ListSuscriptoresComponent,
+      CrearSuscriptorComponent,
+      EditarSuscriptorComponent,
+      FormSuscriptorComponent
   ]  
 })
 

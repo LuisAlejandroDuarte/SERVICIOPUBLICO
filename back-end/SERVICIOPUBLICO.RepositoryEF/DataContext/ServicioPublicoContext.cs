@@ -12,6 +12,9 @@ namespace SERVICIOPUBLICO.RepositoryEF.DataContext
         public DbSet<Suscriptor> Suscriptores { get; set; }
         public DbSet<Uso> Usos { get; set; }
         public DbSet<Tarifa> Tarifas { get; set; }
+        public DbSet<Periodo> Periodos { get; set; }
+        public DbSet<Lectura> Lecturas { get; set; }
+        public DbSet<NoLectura> NoLecturas { get; set; }
 
     }
 }

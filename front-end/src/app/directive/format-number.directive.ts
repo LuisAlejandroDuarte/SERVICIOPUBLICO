@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appFormatNumber]'
@@ -8,12 +8,17 @@ export class FormatNumberDirective {
   private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', '-', 'ArrowLeft', 'ArrowRight', 'Del', 'Delete'];
   constructor(private el: ElementRef) {
   }
+
+  @Input() maxLength:number;
+
   @HostListener('keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {    
 
     if (this.specialKeys.indexOf(event.key) !== -1) {
       return;
     }
+
+      if (this.el.nativeElement.value.length+1>this.maxLength || null) {event.preventDefault();}
 
     let current: string = this.el.nativeElement.value;
     const position = this.el.nativeElement.selectionStart;

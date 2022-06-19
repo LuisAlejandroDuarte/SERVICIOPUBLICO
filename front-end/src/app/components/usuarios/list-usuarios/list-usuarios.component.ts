@@ -4,7 +4,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Usuario,TableUsuario } from 'src/app/model/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
-import Swal from 'sweetalert2';
 import { DatatableService } from 'src/app/services/change/datatable.service';
 import { typeColumns } from 'src/app/shared/datatable/datatable.component';
 

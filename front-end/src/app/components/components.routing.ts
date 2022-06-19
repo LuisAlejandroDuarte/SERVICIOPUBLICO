@@ -27,6 +27,9 @@ import { CrearUsoComponent } from './usos/crear-uso/crear-uso.component';
 import { ListTarifasComponent } from './tarifas/list-tarifas/list-tarifas.component';
 import { CrearTarifaComponent } from './tarifas/crear-tarifa/crear-tarifa.component';
 import { EditarTarifaComponent } from './tarifas/editar-tarifa/editar-tarifa.component';
+import { ListSuscriptoresComponent } from './suscriptores/list-suscriptores/list-suscriptores.component';
+import { EditarSuscriptorComponent } from './suscriptores/editar-suscriptor/editar-suscriptor.component';
+import { CrearSuscriptorComponent } from './suscriptores/crear-suscriptor/crear-suscriptor.component';
 
 
 
@@ -75,6 +78,33 @@ export const ComponentsRoutes: Routes = [
             {
               path: 'crear-uso',
               component: CrearUsoComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'suscriptores',
+              component: ListSuscriptoresComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'editar-suscriptor/:id',
+              component: EditarSuscriptorComponent          
+            }
+        ]
+    },{
+        path: '',
+        children:
+        [
+            {
+              path: 'crear-suscriptor',
+              component: CrearSuscriptorComponent          
             }
         ]
     },{

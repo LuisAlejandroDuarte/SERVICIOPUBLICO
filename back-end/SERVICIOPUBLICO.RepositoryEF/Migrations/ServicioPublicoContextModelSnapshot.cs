@@ -43,6 +43,108 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.ToTable("Empresas");
                 });
 
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Lectura", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("FechaLecturaActual")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Lectura1")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Lectura2")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Lectura3")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Lectura4")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Lectura5")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Lectura6")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("LecturaActual")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("LecturaAnterior")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("LecturaTemporal")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("NoLecturaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SuscriptorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UsuarioId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NoLecturaId");
+
+                    b.HasIndex("SuscriptorId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Lecturas");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.NoLectura", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<long>("EmpresaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.ToTable("NoLecturas");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Periodo", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<int>("Anno")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Mes")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Periodos");
+                });
+
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Suscriptor", b =>
                 {
                     b.Property<long>("Id")
@@ -92,6 +194,9 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
 
                     b.Property<long>("Sistema")
                         .HasColumnType("bigint");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("UsoId")
                         .HasColumnType("bigint");
@@ -309,6 +414,42 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.HasIndex("EmpresaId");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Lectura", b =>
+                {
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.NoLectura", "NoLectura")
+                        .WithMany()
+                        .HasForeignKey("NoLecturaId");
+
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Suscriptor", "Suscriptor")
+                        .WithMany()
+                        .HasForeignKey("SuscriptorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("NoLectura");
+
+                    b.Navigation("Suscriptor");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.NoLectura", b =>
+                {
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
                 });
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Suscriptor", b =>

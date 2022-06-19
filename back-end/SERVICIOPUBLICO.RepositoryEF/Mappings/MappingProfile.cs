@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SERVICIOPUBLICO.DTOs.Suscriptor;
 using SERVICIOPUBLICO.DTOs.Tarifa;
 using SERVICIOPUBLICO.DTOs.Uso;
 using SERVICIOPUBLICO.DTOs.Usuario;
@@ -13,6 +14,7 @@ namespace SERVICIOPUBLICO.RepositoryEF.Mappings
             CreateMap<Usuario, UsuarioDTO>().ReverseMap();
             CreateMap<Uso, UsoDTO>().ReverseMap();
             CreateMap<Tarifa, TarifaDTO>().ReverseMap();
+            CreateMap<Suscriptor, SuscriptorDTO>().ReverseMap();
 
         }
     }

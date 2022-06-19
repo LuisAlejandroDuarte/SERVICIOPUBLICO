@@ -26,6 +26,10 @@ export class DatatableNetComponent implements  AfterViewInit,OnInit,OnDestroy,On
 
   ngOnInit(): void {            
     this.spinner.hide();    
+    this.dataService.data$.subscribe(data=>{
+      this.tabla.ajax.reload();
+      console.log("REload ajax");
+    });                     
   }
   
   onClicEdit(data:any) {

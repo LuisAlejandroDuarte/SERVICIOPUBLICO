@@ -15,7 +15,7 @@ import { TypeTurnos } from '../../../model/turno.model';
 @Component({
   selector: 'app-form-ruta',
   templateUrl: './form-ruta.component.html',
-  styleUrls: ['./form-ruta.component.css']
+  styleUrls: ['./form-ruta.component.css']  
 })
 export class FormRutaComponent implements OnInit,AfterViewInit {
 

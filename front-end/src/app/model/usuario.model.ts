@@ -39,7 +39,7 @@ export interface Roles {
     name:string;      
   };
 
-export const DataRoles:Roles[]=  [{id:1,name:'admin'},{id:2,name:'user'}];
+export const DataRoles:Roles[]=  [{id:1,name:'admin'},{id:2,name:'user'},{id:3,name:'operario'}];
 
 export class UserChangePassword {
 

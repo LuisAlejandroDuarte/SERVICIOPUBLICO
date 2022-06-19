@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using SERVICIOPUBLICO.UseCases.Suscriptores.Crear;
+using SERVICIOPUBLICO.UseCases.Suscriptores.Editar;
+using SERVICIOPUBLICO.UseCases.Suscriptores.Eliminar;
+using SERVICIOPUBLICO.UseCases.Suscriptores.Get;
+using SERVICIOPUBLICO.UseCases.Suscriptores.GetAll;
 using SERVICIOPUBLICO.UseCases.Tarifa.Crear;
 using SERVICIOPUBLICO.UseCases.Tarifa.Editar;
 using SERVICIOPUBLICO.UseCases.Tarifa.Eliminar;
@@ -21,6 +26,7 @@ using SERVICIOPUBLICO.UseCases.Usuarios.Get;
 using SERVICIOPUBLICO.UseCases.Usuarios.GetAllUsuarios;
 using SERVICIOPUBLICO.UseCases.Usuarios.Login;
 using SERVICIOPUBLICO.UseCases.Usuarios.Settings;
+using SERVICIOPUBLICO.UseCasesPorts.Suscriptor;
 using SERVICIOPUBLICO.UseCasesPorts.Tarifa;
 using SERVICIOPUBLICO.UseCasesPorts.Uso;
 using SERVICIOPUBLICO.UseCasesPorts.Usuarios;
@@ -59,6 +65,14 @@ namespace SERVICIOPUBLICO.UseCases
             services.AddTransient<IEliminarTarifaInPutPort, EliminarTarifaInteractor>();
             services.AddTransient<IGetTarifaInPutPort, GetTarifaInteractor>();
             services.AddTransient<IGetAllTarifasInPutPort, GetAllTarifasInteractor>();
+
+
+            //Suscriptores
+            services.AddTransient<ICrearSuscriptorInPutPort, CrearSuscriptorInteractor>();
+            services.AddTransient<IEditarSuscriptorInPutPort, EditarSuscriptorInteractor>();
+            services.AddTransient<IEliminarSuscriptorInPutPort, EliminarSuscriptorInteractor>();
+            services.AddTransient<IGetSuscriptorInPutPort, GetSuscriptorInteractor>();
+            services.AddTransient<IGetAllSuscriptoresInPutPort, GetAllSuscriptoresInteractor>();
 
             services.AddAuthentication(options =>
             {

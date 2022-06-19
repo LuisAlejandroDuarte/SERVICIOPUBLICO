@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SERVICIOPUBLICO.Presenter.Suscriptor;
 using SERVICIOPUBLICO.Presenter.Tarifa;
 using SERVICIOPUBLICO.Presenter.Uso;
 using SERVICIOPUBLICO.Presenter.Usuarios;
+using SERVICIOPUBLICO.UseCasesPorts.Suscriptor;
 using SERVICIOPUBLICO.UseCasesPorts.Tarifa;
 using SERVICIOPUBLICO.UseCasesPorts.Uso;
 using SERVICIOPUBLICO.UseCasesPorts.Usuarios;
@@ -36,6 +38,14 @@ namespace SERVICIOPUBLICO.Presenter
             services.AddScoped<IEliminarTarifaOutPutPort, EliminarTarifaPresenter>();
             services.AddScoped<IGetTarifaOutPutPort, GetTarifaPresenter>();
             services.AddScoped<IGetAllTarifasOutPutPort, GetAllTarifasPresenter>();
+
+
+            //Suscriptores
+            services.AddScoped<ICrearSuscriptorOutPutPort, CrearSuscriptorPresenter>();
+            services.AddScoped<IEditarSuscriptorOutPutPort, EditarSuscriptorPresenter>();
+            services.AddScoped<IEliminarSuscriptorOutPutPort, EliminarSuscriptorPresenter>();
+            services.AddScoped<IGetSuscriptorOutPutPort, GetSuscriptorPresenter>();
+            services.AddScoped<IGetAllSuscriptoresOutPutPort, GetAllSuscriptoresPresenter>();
 
             return services;
         }

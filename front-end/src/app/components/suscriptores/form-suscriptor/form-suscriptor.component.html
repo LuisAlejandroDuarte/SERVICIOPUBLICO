@@ -1,0 +1,163 @@
+
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">supervised_user_circle</i>
+              </div>
+              <h4 class="card-title">{{title}}</h4>
+              <form (ngSubmit)="onSubmit()" [formGroup]="formSuscriptor">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-2">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Uso</mat-label>
+                                <mat-select formControlName="usoId">
+                                    <mat-option *ngFor="let item of usos" [value]="item.id">
+                                    {{item.codigo}}
+                                    </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Zona</label>
+                              <input type="text" class="form-control align-hor" appFormatNumber [maxLength]="2"
+                                formControlName="zona">
+                                <p class="col text-danger" *ngIf="validarCampo('zona')">Valor requerido</p>
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Ruta</label>
+                              <input type="text" class="form-control align-hor" appFormatNumber  [maxLength]="2"
+                                formControlName="ruta">
+                                <p class="col text-danger" *ngIf="validarCampo('ruta')">Valor requerido</p>
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Conexión</label>
+                              <input type="text" class="form-control align-hor" appFormatNumber  [maxLength]="4"
+                                formControlName="conexion">
+                                <p class="col text-danger" *ngIf="validarCampo('conexion')">Valor requerido</p>
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Piso</label>
+                              <input type="text" class="form-control align-hor" appFormatNumber  [maxLength]="2"
+                                formControlName="piso">
+                                <p class="col text-danger" *ngIf="validarCampo('piso')">Valor requerido</p>
+                            </div>
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Apartamento</label>
+                              <input type="text" class="form-control align-hor" appFormatNumber  [maxLength]="2"
+                                formControlName="apto">
+                                <p class="col text-danger" *ngIf="validarCampo('apto')">Valor requerido</p>
+                            </div>
+                          </div>
+                        
+                    </div>     
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Nombre</label>
+                          <input type="text" class="form-control" 
+                            formControlName="nombre">
+                            <p class="col text-danger" *ngIf="validarCampo('nombre')">Valor requerido</p>
+                        </div>
+                      </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Dirección</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="direccion">
+                                  <p class="col text-danger" *ngIf="validarCampo('direccion')">Valor requerido</p>
+                              </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Teléfono</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="telefono">
+                                  <p class="col text-danger" *ngIf="validarCampo('telefono')">Valor requerido</p>
+                              </div>
+                        </div>
+                    </div>       
+                    <div class="row">                       
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Sector</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="sector">
+                                  <p class="col text-danger" *ngIf="validarCampo('sector')">Valor requerido</p>
+                              </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Sección</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="seccion">
+                                  <p class="col text-danger" *ngIf="validarCampo('seccion')">Valor requerido</p>
+                              </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Manzana Dane</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="manzanaDane">
+                                  <p class="col text-danger" *ngIf="validarCampo('manzanaDane')">Valor requerido</p>
+                              </div>
+                        </div>
+                          <div class="col-2">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Manzana Igac</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="manzanaIgac">
+                                  <p class="col text-danger" *ngIf="validarCampo('manzanaIgac')">Valor requerido</p>
+                              </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Manzana estra</label>
+                                <input type="text" class="form-control " 
+                                  formControlName="manzanaEstratifica">
+                                  <p class="col text-danger" *ngIf="validarCampo('manzanaEstratifica')">Valor requerido</p>
+                              </div>
+                        </div>
+                    </div>     
+                   <div class="row">
+                    <div class="col-3">
+                        <mat-checkbox formControlName="alcantarillado">Alcantarillado</mat-checkbox>
+                    </div>
+                    <div class="col-3">
+                        <mat-checkbox formControlName="aseo">Aseo</mat-checkbox>
+                    </div>
+                    <div class="col-3">
+                        <mat-checkbox formControlName="bloqueo">Bloqueado</mat-checkbox>
+                    </div>
+                    <div class="col-2">
+                      <div class="form-group">
+                          <label class="bmd-label-floating">Sistema {{formSuscriptor.get('sistema').value}}</label>
+                          
+                        </div>
+                  </div>
+                   </div>
+                   
+                   
+                    <button mat-raised-button (click)="salir()" class="btn btn-danger pull-right">Cancelar</button>
+                    <button mat-raised-button type="submit" [disabled]="!formSuscriptor.valid" class="btn btn-primary pull-right"> {{modelo==undefined? 'Guardar':'Actualizar'}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
