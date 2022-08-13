@@ -15,4 +15,8 @@
     <ProjectReference Include="..\SERVICIOPUBLICO.UseCasesPorts\SERVICIOPUBLICO.UseCasesPorts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+
 </Project>

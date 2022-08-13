@@ -68,6 +68,7 @@ export class FormSuscriptorComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit() {
+    console.log("Modelo suscriptor",this.modelo);
     setTimeout(()=>{   
     if (this.modelo) {
         const codeSuscriptor= this.modelo.codigo.split("-");

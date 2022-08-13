@@ -15,8 +15,17 @@ namespace SERVICIOPUBLICO.DTOs.Lectura
         public string Direccion { get; set; } = string.Empty;
 
 
-        public long LecturaAnterior { get; set; }
-        public long LecturaActual { get; set; }
+        public long? LecturaAnterior { get; set; }
+        public long? LecturaActual { get; set; }
         public long? NolecturaId { get; set; }
     }
+
+    public class RequestLectura
+    {
+        public string Zona { get; set; } = string.Empty;
+        public string Ruta { get; set; } = string.Empty;
+        public long  EmpresaId { get; set; } 
+
+    }
+    
 }

@@ -1,0 +1,213 @@
+
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">             
+              <h4 class="card-title">{{title}}</h4>
+              <form (ngSubmit)="onSubmit()" [formGroup]="formEncuesta">
+                
+                <div class="container-fluid">
+
+                  <table width="100%">
+                    <tr>
+                      <td rowspan="3">
+                        <img [src]="urlImagen" id="idImagen" class="imagen"  (click)="fileUpload.click()">
+                        <input type="file" class="file-input"
+                        (change)="onFileSelected($event)" #fileUpload>
+                      </td>                      
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xs-12">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                  <mat-label>Zona</mat-label>
+                                  <input  matInput formControlName="zona" >                                                           
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xs-12">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                  <mat-label>Ruta</mat-label>
+                                  <input matInput formControlName="ruta" >                                                         
+                                </mat-form-field>
+                          </div>
+                          <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xs-12">
+                              <mat-form-field class="example-full-width" appearance="fill">
+                                  <mat-label>Conexión</mat-label>
+                                  <input  matInput formControlName="conexion" >                                                          
+                                </mat-form-field>
+                          </div>
+                      </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="row">
+                          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Manzana</mat-label>
+                                    <input matInput formControlName="manzana" >                                                       
+                                  </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Predio</mat-label>
+                                    <input  matInput formControlName="predio" >                                                             
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                      </td>
+                    </tr>
+
+                  </table>                                  
+                  
+                   
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Dirección</mat-label>
+                          <input  matInput formControlName="direccion" >                                                       
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Interno</mat-label>
+                          <input  matInput formControlName="interno" >                                                       
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Nombre</mat-label>
+                          <input  matInput formControlName="nombre" >                                                       
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Uso</mat-label>
+                          <mat-select formControlName="usoId" >
+                            <mat-option *ngFor="let uso of usos" [value]="uso.id">
+                              {{uso.codigo}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                          
+                       
+                        <mat-checkbox  formControlName="acueducto" class="example-margin" >Acueducto</mat-checkbox>
+                        <mat-checkbox formControlName="alcantarillado" class="example-margin" >Alcantarillado</mat-checkbox>
+                          <mat-checkbox formControlName="aseo" class="example-margin" >Aseo</mat-checkbox>
+ 
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">                                                                        
+                        <mat-form-field appearance="fill">
+                          <mat-label>Tipo conexión</mat-label>
+                          <mat-select formControlName="tipoConexion" >
+                            <mat-option *ngFor="let tipo of listaTipoConexion" [value]="tipo.id">
+                              {{tipo.nombre}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">                                                                        
+                        <mat-form-field appearance="fill">
+                          <mat-label>Caja</mat-label>
+                          <mat-select formControlName="caja" >
+                            <mat-option *ngFor="let caja of listaCaja" [value]="caja.id">
+                              {{caja.nombre}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">                                                                        
+                        <mat-form-field appearance="fill">
+                          <mat-label>Medidor</mat-label>
+                          <mat-select formControlName="medidor" >
+                            <mat-option *ngFor="let medidor of listaMedidor" [value]="medidor.id">
+                              {{medidor.nombre}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <mat-form-field appearance="fill">
+                          <mat-label>Marca</mat-label>
+                          <mat-select formControlName="marca" >
+                            <mat-option *ngFor="let marca of listaMarca" [value]="marca.id">
+                              {{marca.nombre}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Número</mat-label>
+                          <input  matInput formControlName="numero" >                                                       
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Diámetro</mat-label>
+                          <input  matInput formControlName="diametro" >                                                       
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Lectura</mat-label>
+                          <input  matInput formControlName="lectura" >                                                       
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-10 col-md-6 col-lg-6 col-xl-6">        
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Latitud</mat-label>
+                          <input  matInput formControlName="latitud" readonly>                                                       
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-10 col-md-5 col-lg-5 col-xl-5">        
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Longitud</mat-label>
+                          <input  matInput formControlName="longitud" readonly>                                                       
+                        </mat-form-field>
+                      </div>
+                      <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">        
+                        <i class="material-icons" (click)="georefrencia()">location_on</i>
+                      </div>
+                     
+                    </div>
+                    <div class="row">
+                      <div class="col-12">        
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Observación</mat-label>
+                          <textarea  matInput formControlName="observacion" ></textarea>                                                       
+                        </mat-form-field>
+                      </div>
+                    
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <button mat-raised-button class="btn btn-success"  type="submit">Guardar</button>
+                        <button mat-raised-button class="btn btn-warning" (click)="buscarPredio($event)">Buscar</button>
+                        <button mat-raised-button class="btn btn-danger" (click)="onSalir()">Salir</button>                          
+                      </div>
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>    

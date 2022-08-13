@@ -33,7 +33,7 @@ export class DatatableNetComponent implements  AfterViewInit,OnInit,OnDestroy,On
   }
   
   onClicEdit(data:any) {
-    this.onEditClick.emit(data);
+    this.onEditClick.emit(data); 
  }
 
  onClicEliminar(data:any) {
@@ -51,10 +51,10 @@ ngAfterViewInit(): void {
     this.tabla= $('#datatables').DataTable({
       pagingType: "full_numbers",
       lengthMenu: [
-        [10, 25, 50, -1],
-        [10, 25, 50, "Todos"]
+        [10, 25, 50],
+        [10, 25, 50]
       ],       
-      dom: "lfrtip",      
+      dom: "'<'top'i>rt<'bottom'flp><'clear'>'",      
       columns: this.columns,
       responsive: true,
       serverSide:true,  
@@ -80,7 +80,7 @@ ngAfterViewInit(): void {
         searchPlaceholder: "Buscar",
         lengthMenu: "Mostar _MENU_ registros por página",
         zeroRecords: "No hay datos",
-        info: "Mostrando _PAGE_ de _PAGES_",          
+        info:"Mostrando _START_ a _END_ de _TOTAL_ entries", 
         infoEmpty: "Mostrando 0 a 0 de 0 registros",
         infoFiltered: "(filtered from _MAX_ total registros)",
         paginate: {

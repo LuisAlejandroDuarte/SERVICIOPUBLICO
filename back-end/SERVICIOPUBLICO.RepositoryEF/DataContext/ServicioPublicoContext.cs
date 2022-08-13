@@ -16,5 +16,8 @@ namespace SERVICIOPUBLICO.RepositoryEF.DataContext
         public DbSet<Lectura> Lecturas { get; set; }
         public DbSet<NoLectura> NoLecturas { get; set; }
 
+        public DbSet<Catastro> Catastros { get; set; }
+        public DbSet<BaseEncuesta> BaseEncuestas { get; set; }
+
     }
 }

@@ -1,0 +1,21 @@
+
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">supervised_user_circle</i>
+              </div>
+              <h4 class="card-title">C A T A S T R O</h4>
+              <div class="icon-add" (click)="onCrearCatastro()">
+                <i class="material-icons">add_circle_outline</i>
+              </div>
+            </div>            
+            <app-datatablenet  [data]="data" [columns]="columns"  (onEditClick)="onclickEditar($event)" (onEliminarClick)="onEliminarClick($event)" [host]="host"></app-datatablenet>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

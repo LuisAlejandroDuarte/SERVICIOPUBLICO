@@ -5,7 +5,7 @@ namespace SERVICIOPUBLICO.Entities.Interfaces
 {
     public interface ILecturaRepository
     {
-        IEnumerable<GetLecturasDTO> GetLecturas(string zonaRutaEmpresaId);
+        List<GetLecturasDTO> GetLecturas(RequestLectura lectura);
         CrearLecturaDTO CrearLectura(CrearLecturaDTO crearLectura);
     }
 }

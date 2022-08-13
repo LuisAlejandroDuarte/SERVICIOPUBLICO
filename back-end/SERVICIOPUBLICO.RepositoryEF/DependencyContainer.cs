@@ -24,6 +24,8 @@ namespace SERVICIOPUBLICO.RepositoryEF
             services.AddScoped<IUsoRepository, UsoRepository>();
             services.AddScoped<ITarifaRepository, TarifaRepository>();
             services.AddScoped<ISuscriptorRepository, SuscriptorRepository>();
+            services.AddScoped<IBaseEncuestaRepository, BaseEncuestaRepository>();
+            services.AddScoped<ICatastroRepository, CatastroRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

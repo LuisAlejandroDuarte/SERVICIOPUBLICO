@@ -1,0 +1,40 @@
+.mat-input-element {
+    color:black;
+}
+
+button {
+    color:black !important;
+    float:right;
+    font-size: 1rem !important;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+  .material-icons {
+    color:blue;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .file-input {
+    display: none;
+  }
+
+  .imagen {
+    max-width: 150px;
+    max-height: 150px;  
+    width: 98%;
+    cursor: pointer;
+  }

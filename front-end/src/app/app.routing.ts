@@ -44,6 +44,10 @@ export const AppRoutes: Routes = [
         path: 'calendar',
         loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)
     }, {
+        path: 'catastro',  
+    
+        loadChildren: () => import('./catastro/catastro.module').then(m => m.CatastroModule)
+    }, {
         path: '',
         loadChildren: () => import('./userpage/user.module').then(m => m.UserModule)
     }, {

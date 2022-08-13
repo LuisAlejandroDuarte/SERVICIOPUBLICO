@@ -56,13 +56,13 @@ export const ROUTES: RouteInfo[] = [{
         ]
     
     },{
-        path: '/reportes',
-        title: 'Reporte',
+        path: '/catastro',
+        title: 'Catastro',
         type: 'sub',
         icontype: 'content_paste',
-        collapse: 'reportes',
+        collapse: 'catastro',
         children: [
-            {path: 'factura-servicio', title: 'Servicios', ab:'S'}
+            {path: 'encuesta', title: 'Encuesta', ab:'S'}
             // {path: 'lecturas', title: 'Lecturas', ab:'EF'},
             // {path: 'deudas', title: 'deudas', ab:'VF'},
             // {path: 'notacredito', title: 'Nota crédito', ab:'W'},

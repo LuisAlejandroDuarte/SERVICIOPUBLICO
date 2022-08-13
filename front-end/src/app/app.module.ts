@@ -51,6 +51,7 @@ import { AuthInterceptorService } from './guads/auth-interceptor.service';
 
 
 
+
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -83,7 +84,8 @@ import { AuthInterceptorService } from './guads/auth-interceptor.service';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule
-  ]  
+  ],
+  declarations: [ ]  
 })
 export class MaterialModule {}
 

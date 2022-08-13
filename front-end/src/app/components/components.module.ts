@@ -48,6 +48,7 @@ import { EditarSuscriptorComponent } from './suscriptores/editar-suscriptor/edit
 import { FormSuscriptorComponent } from './suscriptores/form-suscriptor/form-suscriptor.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -98,6 +99,7 @@ import { FormSuscriptorComponent } from './suscriptores/form-suscriptor/form-sus
       CrearSuscriptorComponent,
       EditarSuscriptorComponent,
       FormSuscriptorComponent
+      
   ]  
 })
 

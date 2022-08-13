@@ -22,6 +22,150 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.BaseEncuesta", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<bool>("Acueducto")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Alcantarillado")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Aseo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("EmpresaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Interno")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("UsoId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.HasIndex("UsoId");
+
+                    b.ToTable("BaseEncuestas");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Catastro", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<bool>("Acueducto")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Alcantarillado")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Aseo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Caja")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Conexion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Diametro")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("EmpresaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Fachada")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Interno")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Latitud")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Lectura")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Longitud")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Manzana")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Marca")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Medidor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Observacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Predio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ruta")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoConexion")
+                        .HasColumnType("int");
+
+                    b.Property<long>("UsoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Zona")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.HasIndex("UsoId");
+
+                    b.ToTable("Catastros");
+                });
+
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Empresa", b =>
                 {
                     b.Property<long>("Id")
@@ -54,31 +198,31 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.Property<DateTime?>("FechaLecturaActual")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("Lectura1")
+                    b.Property<long?>("Lectura1")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Lectura2")
+                    b.Property<long?>("Lectura2")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Lectura3")
+                    b.Property<long?>("Lectura3")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Lectura4")
+                    b.Property<long?>("Lectura4")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Lectura5")
+                    b.Property<long?>("Lectura5")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("Lectura6")
+                    b.Property<long?>("Lectura6")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("LecturaActual")
+                    b.Property<long?>("LecturaActual")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("LecturaAnterior")
+                    b.Property<long?>("LecturaAnterior")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("LecturaTemporal")
+                    b.Property<long?>("LecturaTemporal")
                         .HasColumnType("bigint");
 
                     b.Property<long?>("NoLecturaId")
@@ -414,6 +558,40 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.HasIndex("EmpresaId");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.BaseEncuesta", b =>
+                {
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId");
+
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Uso", "Uso")
+                        .WithMany()
+                        .HasForeignKey("UsoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Uso");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Catastro", b =>
+                {
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId");
+
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Uso", "Uso")
+                        .WithMany()
+                        .HasForeignKey("UsoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Uso");
                 });
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Lectura", b =>

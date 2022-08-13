@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using SERVICIOPUBLICO.UseCases.BaseEncuesta.Get;
+using SERVICIOPUBLICO.UseCases.BaseEncuesta.GetAll;
+using SERVICIOPUBLICO.UseCases.Catastro.Crear;
+using SERVICIOPUBLICO.UseCases.Catastro.Editar;
+using SERVICIOPUBLICO.UseCases.Catastro.GetAll;
 using SERVICIOPUBLICO.UseCases.Suscriptores.Crear;
 using SERVICIOPUBLICO.UseCases.Suscriptores.Editar;
 using SERVICIOPUBLICO.UseCases.Suscriptores.Eliminar;
@@ -26,6 +31,8 @@ using SERVICIOPUBLICO.UseCases.Usuarios.Get;
 using SERVICIOPUBLICO.UseCases.Usuarios.GetAllUsuarios;
 using SERVICIOPUBLICO.UseCases.Usuarios.Login;
 using SERVICIOPUBLICO.UseCases.Usuarios.Settings;
+using SERVICIOPUBLICO.UseCasesPorts.BaseEncuesta;
+using SERVICIOPUBLICO.UseCasesPorts.Catastro;
 using SERVICIOPUBLICO.UseCasesPorts.Suscriptor;
 using SERVICIOPUBLICO.UseCasesPorts.Tarifa;
 using SERVICIOPUBLICO.UseCasesPorts.Uso;
@@ -73,6 +80,15 @@ namespace SERVICIOPUBLICO.UseCases
             services.AddTransient<IEliminarSuscriptorInPutPort, EliminarSuscriptorInteractor>();
             services.AddTransient<IGetSuscriptorInPutPort, GetSuscriptorInteractor>();
             services.AddTransient<IGetAllSuscriptoresInPutPort, GetAllSuscriptoresInteractor>();
+
+            //Catastro
+            services.AddTransient<ICrearCatastroInPutPort, CrearCatastroInteractor>();
+            services.AddTransient<IEditarCatastroInPutPort, EditarCatastroInteractor>();
+            services.AddTransient<IGetAllCatastroInPutPort, GetAllCatastroInteractor>();
+
+            //BaseEncuesta
+            services.AddTransient<IBuscarBaseEncuestaInPutPort, BuscarBaseEncuestaInteractor>();
+            services.AddTransient<IGetAllBaseEncuestaInPutPort, GetAllBaseEncuestaInteractor>();
 
             services.AddAuthentication(options =>
             {

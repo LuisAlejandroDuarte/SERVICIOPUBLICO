@@ -1,8 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SERVICIOPUBLICO.Presenter.BaseEncuesta;
+using SERVICIOPUBLICO.Presenter.Catastro;
 using SERVICIOPUBLICO.Presenter.Suscriptor;
 using SERVICIOPUBLICO.Presenter.Tarifa;
 using SERVICIOPUBLICO.Presenter.Uso;
 using SERVICIOPUBLICO.Presenter.Usuarios;
+using SERVICIOPUBLICO.UseCasesPorts.BaseEncuesta;
+using SERVICIOPUBLICO.UseCasesPorts.Catastro;
 using SERVICIOPUBLICO.UseCasesPorts.Suscriptor;
 using SERVICIOPUBLICO.UseCasesPorts.Tarifa;
 using SERVICIOPUBLICO.UseCasesPorts.Uso;
@@ -46,6 +50,17 @@ namespace SERVICIOPUBLICO.Presenter
             services.AddScoped<IEliminarSuscriptorOutPutPort, EliminarSuscriptorPresenter>();
             services.AddScoped<IGetSuscriptorOutPutPort, GetSuscriptorPresenter>();
             services.AddScoped<IGetAllSuscriptoresOutPutPort, GetAllSuscriptoresPresenter>();
+
+            //Catastro
+            services.AddScoped<ICrearCatastroOutPutPort, CrearCatastroPresenter>();
+            services.AddScoped<IEditarCatastroOutPutPort, EditarCatastroPresenter>();
+            services.AddScoped<IGetAllCatastroOutPutPort, GetAllCatastroPresenter>();
+
+
+            //Base Encuesta
+            services.AddScoped<IBuscarBaseEncuestaOutPutPort, BuscarBaseEncuestaPresenter>();
+            services.AddScoped<IGetAllBaseEncuestaOutPutPort, GetAllBaseEncuestaPresenter>();
+
 
             return services;
         }

@@ -67,6 +67,7 @@ export class FormUsuariosComponent implements OnInit,OnChanges,AfterViewInit {
   }
 
   ngAfterViewInit():void {
+    console.log("Modelo usuario2",this.modelo);
     setTimeout(()=>{
       if (this.modelo) {
         console.log("Modelo usuario2",this.modelo);
