@@ -24,7 +24,7 @@ namespace SERVICIOPUBLICO.UseCases.Usuarios.GetAllUsuarios
 
         public Task Handle(long EmpresaId)
         {
-            var Usuarios = Repository.GetAll()?.Select(u =>
+            var Usuarios = Repository.GetAll().Select(u =>
              new UsuarioDTO
              {
                  Id = u.Id,

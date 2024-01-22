@@ -1,10 +1,11 @@
 ﻿
-using SERVICIOPUBLICO.DTOs.Catastro;
+using Microsoft.AspNetCore.Http;
+
 
 namespace SERVICIOPUBLICO.UseCasesPorts.Catastro
 {
     public interface ICrearCatastroInPutPort
     {
-        Task Handle(CatastroDTO crearCatastro);        
+        Task Handle(IFormCollection crearCatastro);        
     }
 }

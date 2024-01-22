@@ -4,8 +4,9 @@ import { BaseEncuesta } from 'src/app/model/baseEncuesta.model';
 import { Catastro } from 'src/app/model/catastro.mode';
 import { BaseEncuestaService } from 'src/app/services/base-encuesta.service';
 import { CatastroService } from 'src/app/services/catastro.service';
-import { DatatableService } from 'src/app/services/change/datatable.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-crear-encuesta',
@@ -13,28 +14,32 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./crear-encuesta.component.css']
 })
 export class CrearEncuestaComponent implements OnInit {
-
+  urlImagen:any;
   constructor(private baseEncuestaService:BaseEncuestaService,private activatedRoute: ActivatedRoute,private serviceCatastro:CatastroService,
     private spinner:NgxSpinnerService) { }
-  modelo:BaseEncuesta;
+    modelBaseEncuesta:BaseEncuesta;
   ngOnInit(): void {
+
+    
+
     this.activatedRoute.params.subscribe(params=>{
       if (params.id!=0) {
         this.baseEncuestaService.get(params.id).subscribe({
           next:(resp:BaseEncuesta)=>{
-            this.modelo=resp;
+            this.modelBaseEncuesta=resp;
             console.log("Encuesta",resp);
           },
 
         });
-      }
+      }     
     })
   }  
-  save(catastro:Catastro) {    
-    const data = new FormData;
-
+  save(catastro:Catastro) {        
+    catastro.usuarioId =JSON.parse(localStorage.getItem("user")).id;
+    const data = new FormData;    
     data.append("file", catastro.file);
     data.append("empresaId", catastro.empresaId.toString());
+    data.append("usuarioId", catastro.usuarioId.toString());    
     data.append("interno", catastro.interno.toString()); 
     data.append("nombre", catastro.nombre); 
     data.append("direccion", catastro.direccion);    
@@ -61,6 +66,11 @@ export class CrearEncuestaComponent implements OnInit {
     this.serviceCatastro.save(data).subscribe({
       next:(data:any)=>{
         this.spinner.hide();
+      },
+      error:(err:any)=>{
+        this.spinner.hide();
+        console.log("Error",err);
+        Swal.fire("Error","Erroa al guardar la encuesta","error");
       }
     });    
   }

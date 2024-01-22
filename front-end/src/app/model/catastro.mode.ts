@@ -2,6 +2,7 @@ export class Catastro {
     constructor(
         public id?:number,
         public empresaId?:number,
+        public usuarioId?:number,
         public interno?:number,
         public nombre?:string,
         public direccion?:string,

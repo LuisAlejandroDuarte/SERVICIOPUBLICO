@@ -11,6 +11,8 @@ namespace SERVICIOPUBLICO.DTOs.Catastro
         public long Id { get; set; }
         
         public long? EmpresaId { get; set; }
+
+        public long? UsuarioId { get; set; }
         public long Interno { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string Direccion { get; set; } = string.Empty;
@@ -32,13 +34,15 @@ namespace SERVICIOPUBLICO.DTOs.Catastro
 
         public string Numero { get; set; } = string.Empty;
 
-        public double Diametro { get; set; }
+        public string Diametro { get; set; } = string.Empty;
         public long Lectura { get; set; }
 
         public string Latitud { get; set; } = string.Empty;
         public string Longitud { get; set; } = string.Empty;
 
         public string Fachada { get; set; } = string.Empty;
+
+        public byte[]? Imagen { get; set; } 
 
         public string Observacion { get; set; } = string.Empty;
 

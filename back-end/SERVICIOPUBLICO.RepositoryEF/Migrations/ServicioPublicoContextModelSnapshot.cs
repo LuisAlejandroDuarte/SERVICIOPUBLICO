@@ -89,8 +89,9 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Diametro")
-                        .HasColumnType("float");
+                    b.Property<string>("Diametro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
                         .IsRequired()
@@ -153,6 +154,9 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.Property<long>("UsoId")
                         .HasColumnType("bigint");
 
+                    b.Property<long?>("UsuarioId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Zona")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -162,6 +166,8 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.HasIndex("EmpresaId");
 
                     b.HasIndex("UsoId");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Catastros");
                 });
@@ -589,9 +595,15 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
+
                     b.Navigation("Empresa");
 
                     b.Navigation("Uso");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Lectura", b =>

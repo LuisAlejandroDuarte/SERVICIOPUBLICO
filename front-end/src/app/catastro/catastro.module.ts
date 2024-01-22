@@ -10,13 +10,18 @@ import { FormEncuestaComponent } from './encuesta/form-encuesta/form-encuesta.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app.module';
 import { BuscarPredioComponent } from './encuesta/buscar-predio/buscar-predio.component';
+import { EditarEncuestaComponent } from './encuesta/editar-encuesta/editar-encuesta.component';
+import { FormatNumberDirective } from '../directive/format-number.directive';
+import { DirectivesModule } from '../directive/directives.module';
+
 
 @NgModule({
   declarations: [
     CrearEncuestaComponent,
     ListaEncuestaComponent,
     FormEncuestaComponent,
-    BuscarPredioComponent
+    BuscarPredioComponent,
+    EditarEncuestaComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +30,7 @@ import { BuscarPredioComponent } from './encuesta/buscar-predio/buscar-predio.co
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    
+    DirectivesModule
   ]
 })
 export class CatastroModule { }

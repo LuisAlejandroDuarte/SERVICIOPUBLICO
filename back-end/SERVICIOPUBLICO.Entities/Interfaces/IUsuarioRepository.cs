@@ -10,7 +10,7 @@ namespace SERVICIOPUBLICO.Entities.Interfaces
         ResultDataTable GetAllUsuarios(Paginator paginator);
         UsuarioDTO  CrearUsuarios(UsuarioDTO usuario);
         UsuarioDTO ActualizarUsuario(UsuarioDTO usuario);
-        IEnumerable<Usuario>? GetAll();
+        IEnumerable<Usuario> GetAll();
         UsuarioDTO Login(LoginDTO login);
         UsuarioDTO GetUser(long Id);
         void ChangePassword(UsuarioDTO usuario);

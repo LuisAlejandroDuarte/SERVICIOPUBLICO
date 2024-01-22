@@ -55,7 +55,7 @@ namespace SERVICIOPUBLICO.Presenter
             services.AddScoped<ICrearCatastroOutPutPort, CrearCatastroPresenter>();
             services.AddScoped<IEditarCatastroOutPutPort, EditarCatastroPresenter>();
             services.AddScoped<IGetAllCatastroOutPutPort, GetAllCatastroPresenter>();
-
+            services.AddScoped<IGetCatastroOutPutPort, GetCatastroPresenter>();
 
             //Base Encuesta
             services.AddScoped<IBuscarBaseEncuestaOutPutPort, BuscarBaseEncuestaPresenter>();

@@ -33,7 +33,6 @@ import { ListRutasComponent } from './rutas/list-rutas/list-rutas.component';
 import { FormRutaComponent } from './rutas/form-ruta/form-ruta.component';
 import { CrearRutaComponent } from './rutas/crear-ruta/crear-ruta.component';
 import { EditarRutaComponent } from './rutas/editar-ruta/editar-ruta.component';
-import { FormatNumberDirective } from '../directive/format-number.directive';
 import { ListUsosComponent } from './usos/list-usos/list-usos.component';
 import { FormUsoComponent } from './usos/form-uso/form-uso.component';
 import { CrearUsoComponent } from './usos/crear-uso/crear-uso.component';
@@ -49,6 +48,7 @@ import { FormSuscriptorComponent } from './suscriptores/form-suscriptor/form-sus
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -58,6 +58,7 @@ import { FormSuscriptorComponent } from './suscriptores/form-suscriptor/form-sus
     MaterialModule,
     ListTablaModule,
     DatatableNetModule
+    
   ],
   declarations: [
       ButtonsComponent,
@@ -85,8 +86,7 @@ import { FormSuscriptorComponent } from './suscriptores/form-suscriptor/form-sus
       ListRutasComponent,
       FormRutaComponent,
       CrearRutaComponent,
-      EditarRutaComponent,
-      FormatNumberDirective,
+      EditarRutaComponent,      
       ListUsosComponent,
       FormUsoComponent,
       CrearUsoComponent,

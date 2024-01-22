@@ -15,7 +15,7 @@ namespace SERVICIOPUBLICO.RepositoryEF.DataContext
             {
                 var OptionsBuilder = new DbContextOptionsBuilder<ServicioPublicoContext>();
 
-                OptionsBuilder.UseSqlServer("Data Source=CASA;Initial Catalog=SERVICIOPUBLICO;Integrated Security=true").EnableSensitiveDataLogging();
+                OptionsBuilder.UseSqlServer("Data Source=DESKTOP-9REACFU;Initial Catalog=SERVICIOPUBLICO;Integrated Security=true").EnableSensitiveDataLogging();
 
                 return new ServicioPublicoContext(OptionsBuilder.Options);
             }

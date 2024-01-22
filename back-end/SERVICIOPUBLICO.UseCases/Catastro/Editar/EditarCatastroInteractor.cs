@@ -1,4 +1,4 @@
-﻿using SERVICIOPUBLICO.DTOs.Catastro;
+﻿using Microsoft.AspNetCore.Http;
 using SERVICIOPUBLICO.Entities.Interfaces;
 using SERVICIOPUBLICO.UseCasesPorts.Catastro;
 
@@ -17,8 +17,9 @@ namespace SERVICIOPUBLICO.UseCases.Catastro.Editar
             this.outPutPort = outPutPort;
             this.unitOfWork = unitOfWork;
         }
+ 
 
-        public async Task Handle(CatastroDTO editarCatastro)
+        public async Task Handle(IFormCollection editarCatastro)
         {
             var result = this.repository.EditarCatastro(editarCatastro);
             await this.unitOfWork.SaveChanges();

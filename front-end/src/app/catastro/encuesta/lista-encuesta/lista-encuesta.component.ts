@@ -40,7 +40,7 @@ export class ListaEncuestaComponent implements OnInit {
   }
 
   onclickEditar(catastro:Catastro) {
-    this.router.navigateByUrl('catatro/editar-encuesta/' + catastro.id);
+    this.router.navigateByUrl('catastro/editar-encuesta/' + catastro.id);
   }
 
   onEliminarClick(catastro:Catastro) {

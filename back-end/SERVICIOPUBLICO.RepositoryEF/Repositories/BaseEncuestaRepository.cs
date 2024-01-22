@@ -36,6 +36,11 @@ namespace SERVICIOPUBLICO.RepositoryEF.Repositories
             int filterReg = 0;
             int interno = 0;
 
+
+            var datos = (from item in context.Catastros where item.Id > 0 select item);
+            datos = context.Catastros.Where(p => p.Id > 0).Select(p=>p) ;
+
+
             var baseEncuesta = context.BaseEncuestas?.Where(x => x.EmpresaId == paginator.idEmpresa);
             totalReg = baseEncuesta.Count();
             filterReg = baseEncuesta.Count();
