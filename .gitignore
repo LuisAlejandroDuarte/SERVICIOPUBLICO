@@ -353,3 +353,5 @@ MigrationBackup/
 front-end/node_modules/
 
 front-end/.angular/
+
+DOC/

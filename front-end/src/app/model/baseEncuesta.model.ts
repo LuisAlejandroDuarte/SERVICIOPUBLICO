@@ -7,6 +7,7 @@ export class BaseEncuesta {
         public usoId?:number,
         public acueduto?:boolean,        
         public alcantarillado?:boolean,
+        public imagen?:any,
         public aseo?:boolean) {}
 }
 
@@ -30,7 +31,7 @@ export interface GeoLocation {
 export const  ListaTipoConexion:lista[] = [
     {id:1,nombre:'Normal'},
     {id:2,nombre:'Derivada'},
-    {id:3,nombre:'Contabilizada'},
+    {id:3,nombre:'No Contabilizada'},
     {id:4,nombre:'Fraudulenta'}
 ]
 

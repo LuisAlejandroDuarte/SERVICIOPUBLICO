@@ -20,4 +20,17 @@ export class CatastroService {
   save(datos:FormData) {
     return this.http.post(`${base_url}/CrearCatastro/`,datos);
   }
+  editar(datos:FormData) {
+    return this.http.post(`${base_url}/EditarCatastro/`,datos);
+  }
+
+  getImagen(id:number) {
+    return this.http.get(`${base_url}/CrearCatastro/${id}`);
+  }
+
+  get(id:number) {
+    return this.http.get(`${base_url}/GetCatastro/${id}`);
+  }
+
+
 }

@@ -8,6 +8,7 @@ using SERVICIOPUBLICO.UseCases.BaseEncuesta.Get;
 using SERVICIOPUBLICO.UseCases.BaseEncuesta.GetAll;
 using SERVICIOPUBLICO.UseCases.Catastro.Crear;
 using SERVICIOPUBLICO.UseCases.Catastro.Editar;
+using SERVICIOPUBLICO.UseCases.Catastro.Get;
 using SERVICIOPUBLICO.UseCases.Catastro.GetAll;
 using SERVICIOPUBLICO.UseCases.Suscriptores.Crear;
 using SERVICIOPUBLICO.UseCases.Suscriptores.Editar;
@@ -85,6 +86,7 @@ namespace SERVICIOPUBLICO.UseCases
             services.AddTransient<ICrearCatastroInPutPort, CrearCatastroInteractor>();
             services.AddTransient<IEditarCatastroInPutPort, EditarCatastroInteractor>();
             services.AddTransient<IGetAllCatastroInPutPort, GetAllCatastroInteractor>();
+            services.AddTransient<IGetCatastroInPutPort, GetCatastroInteractor>();
 
             //BaseEncuesta
             services.AddTransient<IBuscarBaseEncuestaInPutPort, BuscarBaseEncuestaInteractor>();

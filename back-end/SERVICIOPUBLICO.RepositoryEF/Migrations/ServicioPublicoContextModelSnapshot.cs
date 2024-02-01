@@ -40,7 +40,6 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Direccion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("EmpresaId")
@@ -50,7 +49,6 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("UsoId")
@@ -86,39 +84,33 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Conexion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Diametro")
-                        .HasColumnType("float");
+                    b.Property<string>("Diametro")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("EmpresaId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Fachada")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("Interno")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Latitud")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("Lectura")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Longitud")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Manzana")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Marca")
@@ -128,23 +120,18 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Numero")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Observacion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Predio")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ruta")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TipoConexion")
@@ -153,8 +140,10 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.Property<long>("UsoId")
                         .HasColumnType("bigint");
 
+                    b.Property<long?>("UsuarioId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Zona")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -162,6 +151,8 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.HasIndex("EmpresaId");
 
                     b.HasIndex("UsoId");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Catastros");
                 });
@@ -175,11 +166,9 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<string>("Direccion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -245,6 +234,117 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.ToTable("Lecturas");
                 });
 
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Liquidacion", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<int?>("MesLiquidarId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("OtroSubsidio")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("OtroValor")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("SubsidioAseo")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("SubsidioBasicoAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("SubsidioBasicoAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("SubsidioCargoFijoAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("SubsidioCargoFijoAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("SubsidvalorContribucionAseoioAseo")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<long?>("SuscriptorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal>("ValorBarridoAseo")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorBasicoAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorBasicoAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorCargoFijoAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorCargoFijoAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorComplementarioAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorComplementarioAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorContribucionAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorContribucionAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorDisposicionAseo")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorRecaudoAseo")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorRecoleccionAseo")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorSuntuarioAcueducto")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<decimal>("ValorSuntuarioAlcantarillado")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MesLiquidarId");
+
+                    b.HasIndex("SuscriptorId");
+
+                    b.ToTable("Liquidacion");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.MesLiquidar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Mes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MesLiquidar");
+                });
+
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.NoLectura", b =>
                 {
                     b.Property<long>("Id")
@@ -257,7 +357,6 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -520,11 +619,9 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<string>("Apellido")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("EmpresaId")
@@ -534,23 +631,18 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rol")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("User")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -589,9 +681,15 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
+
                     b.Navigation("Empresa");
 
                     b.Navigation("Uso");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Lectura", b =>
@@ -617,6 +715,21 @@ namespace SERVICIOPUBLICO.RepositoryEF.Migrations
                     b.Navigation("Suscriptor");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.Liquidacion", b =>
+                {
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.MesLiquidar", "MesLiquidar")
+                        .WithMany()
+                        .HasForeignKey("MesLiquidarId");
+
+                    b.HasOne("SERVICIOPUBLICO.Entities.POCOs.Suscriptor", "Suscriptor")
+                        .WithMany()
+                        .HasForeignKey("SuscriptorId");
+
+                    b.Navigation("MesLiquidar");
+
+                    b.Navigation("Suscriptor");
                 });
 
             modelBuilder.Entity("SERVICIOPUBLICO.Entities.POCOs.NoLectura", b =>

@@ -113,7 +113,7 @@ export class MaterialModule {}
     ],
     exports: [    
       NgxSpinnerModule,
-      ListTablaModule
+      ListTablaModule   
     ],
     providers : [
       MatNativeDateModule,

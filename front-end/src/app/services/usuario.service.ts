@@ -28,7 +28,8 @@ export class UsuarioService {
                 .pipe(
                   tap((resp:any)=>{
                     console.log(resp);
-                    localStorage.setItem('token',resp.token)
+                    localStorage.setItem('token',resp.token);
+                    localStorage.setItem('user',JSON.stringify(resp));
                   })
                 )
   }
@@ -96,6 +97,8 @@ export class UsuarioService {
 
   exit() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('predio');
     this.router.navigateByUrl('/pages/login');
   }
 

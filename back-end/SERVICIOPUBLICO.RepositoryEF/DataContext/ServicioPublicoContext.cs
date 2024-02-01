@@ -19,5 +19,8 @@ namespace SERVICIOPUBLICO.RepositoryEF.DataContext
         public DbSet<Catastro> Catastros { get; set; }
         public DbSet<BaseEncuesta> BaseEncuestas { get; set; }
 
+        public DbSet<MesLiquidar> MesLiquidar { get; set; }
+        public DbSet<Liquidacion> Liquidacion { get; set; }
+
     }
 }

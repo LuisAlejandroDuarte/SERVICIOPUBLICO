@@ -11,6 +11,11 @@ namespace SERVICIOPUBLICO.Entities.POCOs
         public long Id { get; set; }
 
         public virtual Empresa? Empresa { get; set; }
+
+        public virtual Usuario? Usuario { get; set; }
+
+        public long? UsuarioId { get; set; }
+
         public long? EmpresaId { get; set; }
         public long Interno { get; set; }
         public string Nombre { get; set; } = string.Empty;
@@ -38,7 +43,7 @@ namespace SERVICIOPUBLICO.Entities.POCOs
 
         public string Numero { get; set; }=string.Empty;
 
-        public double Diametro { get; set; }
+        public string Diametro { get; set; } = string.Empty;
         public long Lectura { get; set; }
 
         public string Latitud { get; set; } = string.Empty;

@@ -24,13 +24,13 @@
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xs-12">
                               <mat-form-field class="example-full-width" appearance="fill">
                                   <mat-label>Zona</mat-label>
-                                  <input  matInput formControlName="zona" >                                                           
+                                  <input  matInput formControlName="zona" appFormatNumber [maxLength]="2" (onBlurEmitter)="onBlurZona($event)">                                                           
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xs-12">
                               <mat-form-field class="example-full-width" appearance="fill">
                                   <mat-label>Ruta</mat-label>
-                                  <input matInput formControlName="ruta" >                                                         
+                                  <input matInput formControlName="ruta" appFormatNumber [maxLength]="2" (onBlurEmitter)="onBlurRuta($event)">                                                         
                                 </mat-form-field>
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xs-12">
@@ -198,7 +198,7 @@
                     <div class="row">
                       <div class="col">
                         <button mat-raised-button class="btn btn-success"  type="submit">Guardar</button>
-                        <button mat-raised-button class="btn btn-warning" (click)="buscarPredio($event)">Buscar</button>
+                        <button *ngIf="!modelCatastro" mat-raised-button class="btn btn-warning" (click)="buscarPredio($event)">Buscar</button>
                         <button mat-raised-button class="btn btn-danger" (click)="onSalir()">Salir</button>                          
                       </div>
                   </div>

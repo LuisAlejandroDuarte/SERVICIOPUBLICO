@@ -10,6 +10,7 @@ import { DatatableService } from 'src/app/services/change/datatable.service';
 import { UsoService } from 'src/app/services/uso.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
+import {DomSanitizer} from '@angular/platform-browser';
 declare const $: any;
 @Component({
   selector: 'app-form-encuesta',
@@ -25,11 +26,12 @@ export class FormEncuestaComponent implements OnInit,AfterViewInit {
   listaCaja:lista[]=ListaCaja;
   listaMedidor:lista[]=ListaMedidor;
   listaMarca:lista[]=ListaMarca;
-  urlImagen:string=environment.UrlImagenDefault;
-  @Input() model:BaseEncuesta;
+  urlImagen:any=environment.UrlImagenDefault;
+  @Input() modelBaseEncuesta:BaseEncuesta;
+  @Input() modelCatastro:Catastro;
   @Output() guardarCambios = new EventEmitter<Catastro>();
   constructor(private fb:FormBuilder,private formValidatorService:FormValidatorService,private router:Router,
-    private usoService:UsoService,private spinner:NgxSpinnerService) { }
+    private usoService:UsoService,private spinner:NgxSpinnerService,private sanitizer:DomSanitizer) { }
   
   ngOnInit(): void {
     this.formEncuesta = this.fb.group({
@@ -85,15 +87,35 @@ export class FormEncuestaComponent implements OnInit,AfterViewInit {
   ngAfterViewInit() {
     
     setTimeout(()=>{   
-      console.log("ViewInit",this.model);
-      if (this.model) {
+      console.log("modelBaseEncuesta",this.modelBaseEncuesta);
+      console.log("modelCatastro",this.modelCatastro);
+      if (this.modelBaseEncuesta) {
+        //console.log("Dtos",this.mod);
         //this.georefrencia();
-        this.formEncuesta.patchValue(this.model);  
+        
+
+        this.formEncuesta.get('interno').setValue(this.modelBaseEncuesta.interno);
+        this.formEncuesta.get('direccion').setValue(this.modelBaseEncuesta.direccion);
+        this.formEncuesta.get('nombre').setValue(this.modelBaseEncuesta.nombre);
+        this.formEncuesta.get('acueducto').setValue(this.modelBaseEncuesta.acueduto);
+        this.formEncuesta.get('alcantarillado').setValue(this.modelBaseEncuesta.alcantarillado);
+        this.formEncuesta.get('aseo').setValue(this.modelBaseEncuesta.alcantarillado);
+        this.formEncuesta.get('usoId').setValue(this.modelBaseEncuesta.usoId);
+        
         if (!localStorage.getItem("predio")) {
           localStorage.setItem("predio",JSON.stringify(this.formEncuesta.value));
         }    
       }
-  });
+
+      if (this.modelCatastro) {
+        this.urlImagen =environment.UrlImagenDefault;
+        if (this.modelCatastro.imagen)        
+            this.urlImagen = this.sanitizer.bypassSecurityTrustUrl("data:image/png;charset=utf-8;base64," + this.modelCatastro.imagen);
+                    
+        this.formEncuesta.patchValue(this.modelCatastro);
+
+      }
+  },500);
 }
 
 georefrencia() {
@@ -119,14 +141,14 @@ onFileSelected(data:any) {
       var fr = new FileReader();      
       fr.onload = (e)=> {
         $('#idImagen').attr('src', e.target.result);
-        console.log("Fachada",e.target.result);
-        this.formEncuesta.get('imagen').setValue(e.target.result);     
+       // console.log("Fachada",e.target.result);
+      //  this.formEncuesta.get('imagen').setValue(e.target.result);     
         localStorage.setItem("predio",JSON.stringify(this.formEncuesta.value));
       }
       fr.readAsDataURL(file);
   }
  
-    localStorage.setItem("predio",JSON.stringify(this.formEncuesta.value));
+   // localStorage.setItem("predio",JSON.stringify(this.formEncuesta.value));
     }
 }
 
@@ -140,16 +162,23 @@ onSalir() {
 
   onSubmit() {
     //console.log("File",this.formEncuesta.get('fachada').value); 
-    Swal.fire({
-      title: `Desea guardar el número interno ${this.formEncuesta.get("interno").value} ?`,
-      showDenyButton: true,      
-      confirmButtonText: 'Si',
-      denyButtonText: `No`,
-    }).then((result) => {      
-      if (result.isConfirmed) {
-          this.guardarCambios.emit(this.formEncuesta.value);        
-      } 
-    })
+    if (this.modelCatastro) {
+      this.guardarCambios.emit(this.formEncuesta.value);
+    } else {
+      Swal.fire({
+        title: `Desea guardar el número interno ${this.formEncuesta.get("interno").value} ?`,
+        showDenyButton: true,      
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {      
+        if (result.isConfirmed) {
+            this.guardarCambios.emit(this.formEncuesta.value);        
+        } 
+      })
+    }
+    
+    
+    
 
       //console.log("Enviar",this.formEncuesta.value);
   }
@@ -159,6 +188,14 @@ onSalir() {
     localStorage.setItem("predio",JSON.stringify(this.formEncuesta.value));
     e.stopPropagation();
     this.router.navigateByUrl('catastro/buscar-predio')
+  }
+
+  onBlurZona(data:string) {
+    console.log("Zona",data);
+  }
+
+  onBlurRuta(data:string) {
+    console.log("Ruta",data);
   }
 
 }

@@ -1,4 +1,5 @@
-﻿using SERVICIOPUBLICO.DTOs.Catastro;
+﻿using Microsoft.AspNetCore.Http;
+using SERVICIOPUBLICO.DTOs.Catastro;
 using SERVICIOPUBLICO.Entities.Interfaces;
 using SERVICIOPUBLICO.UseCasesPorts.Catastro;
 
@@ -18,7 +19,8 @@ namespace SERVICIOPUBLICO.UseCases.Catastro.Crear
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CatastroDTO crearCatastro)
+
+        public async Task Handle(IFormCollection crearCatastro)
         {
             var catastro = this.repository.CrearCatastro(crearCatastro);
 
