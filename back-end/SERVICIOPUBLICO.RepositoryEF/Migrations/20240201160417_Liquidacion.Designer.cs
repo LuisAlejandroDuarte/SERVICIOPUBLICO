@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SERVICIOPUBLICO.RepositoryEF.DataContext;
 
@@ -11,9 +12,10 @@ using SERVICIOPUBLICO.RepositoryEF.DataContext;
 namespace SERVICIOPUBLICO.RepositoryEF.Migrations
 {
     [DbContext(typeof(ServicioPublicoContext))]
-    partial class ServicioPublicoContextModelSnapshot : ModelSnapshot
+    [Migration("20240201160417_Liquidacion")]
+    partial class Liquidacion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
